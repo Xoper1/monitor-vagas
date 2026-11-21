@@ -1,1 +1,351 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radar de Vagas & Editais</title>
+  <style>
+    :root {
+      --bg: #0b1120;
+      --card: #111827;
+      --card-hover: #172033;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.14);
+      --new-badge: #22c55e;
+      --new-soft: rgba(34, 197, 94, 0.14);
+      --border: #1e293b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 24px 16px 48px;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: 1.65rem;
+      letter-spacing: -0.02em;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .stats {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 14px 0 18px;
+    }
+
+    .stat-pill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .stat-pill strong {
+      color: var(--text);
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    input, select, button {
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.92rem;
+    }
+
+    input {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    button {
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    button:hover {
+      color: var(--text);
+      background: var(--card-hover);
+    }
+
+    .grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .card:hover {
+      border-color: #334155;
+      background: var(--card-hover);
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .badge-new {
+      background: var(--new-soft);
+      color: var(--new-badge);
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+
+    .categoria {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .titulo {
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1.45;
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .data {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Radar de Vagas &amp; Editais</h1>
+      <div class="meta" id="meta">Carregando dados...</div>
+    </header>
+
+    <div class="stats" id="stats"></div>
+
+    <div class="controls">
+      <input id="busca" type="text" placeholder="Buscar por título, palavra-chave ou fonte..." />
+      <select id="fonte">
+        <option value="ALL">Todas as fontes</option>
+      </select>
+      <select id="periodo">
+        <option value="ALL">Qualquer data</option>
+        <option value="48H">Últimas 48 horas</option>
+        <option value="7D">Últimos 7 dias</option>
+      </select>
+      <button id="limpar" type="button">Limpar</button>
+    </div>
+
+    <div class="grid" id="lista"></div>
+  </div>
+
+  <script>
+    let dados = [];
+
+    function isRecente(isoDate, horas) {
+      if (!isoDate) return false;
+      const tempo = Date.parse(isoDate);
+      if (Number.isNaN(tempo)) return false;
+      return (Date.now() - tempo) <= horas * 3600 * 1000;
+    }
+
+    function formatarData(isoDate) {
+      if (!isoDate) return "";
+      const dt = new Date(isoDate);
+      if (Number.isNaN(dt.getTime())) return isoDate;
+      return dt.toLocaleString("pt-BR", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+    }
+
+    function renderStats(filtrados) {
+      const statsEl = document.getElementById("stats");
+      const porFonte = {};
+      filtrados.forEach(item => {
+        const f = item.fonte || "Sem fonte";
+        porFonte[f] = (porFonte[f] || 0) + 1;
+      });
+
+      const pills = [
+        `<div class="stat-pill">Exibindo: <strong>${filtrados.length}</strong></div>`
+      ];
+
+      Object.entries(porFonte).forEach(([fonte, qtd]) => {
+        pills.push(`<div class="stat-pill">${fonte}: <strong>${qtd}</strong></div>`);
+      });
+
+      statsEl.innerHTML = pills.join("");
+    }
+
+    function render() {
+      const termo = document.getElementById("busca").value.toLowerCase().trim();
+      const fonte = document.getElementById("fonte").value;
+      const periodo = document.getElementById("periodo").value;
+      const lista = document.getElementById("lista");
+
+      const filtrados = dados.filter(item => {
+        const bateFonte = fonte === "ALL" || item.fonte === fonte;
+        const bateTexto = !termo ||
+          (item.titulo || "").toLowerCase().includes(termo) ||
+          (item.fonte || "").toLowerCase().includes(termo) ||
+          (item.categoria || "").toLowerCase().includes(termo);
+
+        let batePeriodo = true;
+        if (periodo === "48H") batePeriodo = isRecente(item.data_coleta, 48);
+        if (periodo === "7D") batePeriodo = isRecente(item.data_coleta, 24 * 7);
+
+        return bateFonte && bateTexto && batePeriodo;
+      });
+
+      renderStats(filtrados);
+
+      if (!filtrados.length) {
+        lista.innerHTML = `<div class="card"><span class="meta">Nenhuma vaga ou edital corresponde aos filtros atuais.</span></div>`;
+        return;
+      }
+
+      lista.innerHTML = filtrados.map(v => {
+        const recente = isRecente(v.data_coleta, 48);
+        return `
+          <article class="card">
+            <div class="top">
+              <div class="tags">
+                <span class="badge">${v.fonte || "Fonte"}</span>
+                ${recente ? `<span class="badge-new">RECENTE</span>` : ""}
+              </div>
+              <span class="categoria">${v.categoria || ""}</span>
+            </div>
+            <div class="titulo">${v.titulo || "Sem título"}</div>
+            <div class="bottom">
+              <a href="${v.url}" target="_blank" rel="noopener noreferrer">Abrir link oficial →</a>
+              <span class="data">${formatarData(v.data_coleta)}</span>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    fetch("./vagas.json?t=" + Date.now())
+      .then(r => {
+        if (!r.ok) throw new Error("Falha ao buscar vagas.json");
+        return r.json();
+      })
+      .then(json => {
+        dados = Array.isArray(json.vagas) ? json.vagas : [];
+        const atualizado = json.atualizado_em ? formatarData(json.atualizado_em) : "—";
+        document.getElementById("meta").textContent =
+          `Base total: ${dados.length} itens · Última atualização: ${atualizado}`;
+
+        const select = document.getElementById("fonte");
+        const fontes = [...new Set(dados.map(d => d.fonte).filter(Boolean))].sort();
+        fontes.forEach(f => {
+          const opt = document.createElement("option");
+          opt.value = f;
+          opt.textContent = f;
+          select.appendChild(opt);
+        });
+
+        render();
+      })
+      .catch(() => {
+        document.getElementById("meta").textContent =
+          "Não foi possível carregar docs/vagas.json. Verifique se o arquivo existe e é um JSON válido.";
+      });
+
+    document.getElementById("busca").addEventListener("input", render);
+    document.getElementById("fonte").addEventListener("change", render);
+    document.getElementById("periodo").addEventListener("change", render);
+    document.getElementById("limpar").addEventListener("click", () => {
+      document.getElementById("busca").value = "";
+      document.getElementById("fonte").value = "ALL";
+      document.getElementById("periodo").value = "ALL";
+      render();
+    });
+  </script>
+</body>
+</html>
