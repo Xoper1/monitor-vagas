@@ -1,5 +1,214 @@
 {
-  "atualizado_em": "2026-11-20T22:33:40.133918-03:00",
-  "total": 0,
-  "vagas": []
+  "atualizado_em": "2026-11-20T22:46:15.522559-03:00",
+  "total": 26,
+  "vagas": [
+    {
+      "titulo": "Música Licenciatura 2027.1",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=632",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "4a1e84363ae3c523"
+    },
+    {
+      "titulo": "Processo Seletivo UFAL 2027.1 - Licenciatura em Letras - LIBRAS",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=628",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "c4aee1daa67e8c96"
+    },
+    {
+      "titulo": "PAESPE UFAL - 2027",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=627",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "18b8faedebf75136"
+    },
+    {
+      "titulo": "PSS - Vagas Não Preenchidas do SiSU 2026.2 - 2° Semestre",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=620",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "bb7fa36b1bcab39e"
+    },
+    {
+      "titulo": "PSS UFAL 2026.2 - Pessoas Trans",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=619",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "71883c43a21e7bac"
+    },
+    {
+      "titulo": "Escola Técnica de Artes UFAL - 2026",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=616",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "d611988868a77671"
+    },
+    {
+      "titulo": "UFAL - SiSU 2026.1",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=605",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "f30fc30af7e62d30"
+    },
+    {
+      "titulo": "Todos os Vestibulares",
+      "link": "https://copeve.ufal.br/index.php?opcao=todosConcursos",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "d4108d86ae117556"
+    },
+    {
+      "titulo": "Sistema de Inscrição",
+      "link": "https://copeve.ufal.br/sistema",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "17a37473128ee0e2"
+    },
+    {
+      "titulo": "Instituto Federal de Alagoas - Exame de Seleção 2027.1.1 - Técnico Integrado ao Ensino Médio",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=629",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "c4ac18bd6d5ad4da"
+    },
+    {
+      "titulo": "Transferência Externa UFAL - 2027.1",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=626",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "258019fe79186fa3"
+    },
+    {
+      "titulo": "Reopção de Curso UFAL 2027.1",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=623",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "a33d5f4059e475da"
+    },
+    {
+      "titulo": "Reintegração UFAL - 2027.1",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=624",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "d79bfae298ec0833"
+    },
+    {
+      "titulo": "Portador de Diploma UFAL - 2027.1",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=625",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "2b50c550151ce8aa"
+    },
+    {
+      "titulo": "Processo Seletivo Público SEMED Maceió - 2026",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=617",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "9a2b53a2111be7da"
+    },
+    {
+      "titulo": "Concurso Guarda Civil Municipal de Maceió - 2026",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=3827234",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "3219f99bc0e30cf5"
+    },
+    {
+      "titulo": "Concurso IFAL Magistério EBTT 2026",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=606",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "c85860507b76dc71"
+    },
+    {
+      "titulo": "Docente Substituto - Ed.46/2026",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=631",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "d639ad4ce030d2ad"
+    },
+    {
+      "titulo": "Docente Substituto - Ed.45/2026",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=630",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "8d1081edb50b05e6"
+    },
+    {
+      "titulo": "Distribuição de Vagas Substituto Ed.39/2026",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=622",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "411e99949e70e695"
+    },
+    {
+      "titulo": "Técnico em LIBRAS UFAL - 2026 (2º)",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=618",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "dfa1df6c0e003711"
+    },
+    {
+      "titulo": "Técnico em LIBRAS UFAL - 2026 (1º)",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=609",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "4553c2350d9029ad"
+    },
+    {
+      "titulo": "Docente Visitante - Ed.12/2026",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=611",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "4bb90fceb6c19122"
+    },
+    {
+      "titulo": "Docente UFAL Efetivo - Edital n.006-2025",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=580",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "6ad3e8768ee8c389"
+    },
+    {
+      "titulo": "Docente Efetivo CApTV 2024 - Ed.020/2024",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=561",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "5a15281b342706eb"
+    },
+    {
+      "titulo": "Docente Subst. - Ed.001/2024",
+      "link": "https://copeve.ufal.br/index.php?opcao=concurso&idConcurso=550",
+      "fonte": "COPEVE/UFAL",
+      "categoria": "Processo / Edital",
+      "data_coleta": "2026-11-20T22:46:15.522559-03:00",
+      "id": "83594ae116b4ad7a"
+    }
+  ]
 }
