@@ -7,7 +7,7 @@ from scrapers.base import BaseScraper, Vaga
 
 class CopeveUfalScraper(BaseScraper):
     nome_fonte = "COPEVE/UFAL"
-    URL_BASE = "https://www.copeve.ufal.br/"
+    URL_BASE = "https://copeve.ufal.br/"
 
     PALAVRAS_CHAVE = (
         "edital",
