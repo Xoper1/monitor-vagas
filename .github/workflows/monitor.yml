@@ -2,7 +2,7 @@ name: Monitorar Vagas
 
 on:
   schedule:
-    - cron: "0 */3 * * *" # A cada 3 horas
+    - cron: "0 9 * * 0" # A cada 3 horas
   workflow_dispatch: # Permite rodar manualmente pela aba Actions
 
 permissions:
